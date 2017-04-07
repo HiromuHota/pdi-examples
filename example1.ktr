@@ -449,18 +449,18 @@
   </notepads>
   <order>
     <hop>
-      <from>Modified Java Script Value</from>
-      <to>MQTT Publisher</to>
+      <from>Make messages</from>
+      <to>Publish messages to a public MQTT Broker</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Text file input</from>
-      <to>Modified Java Script Value</to>
+      <from>Read a CSV file from S3</from>
+      <to>Make messages</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>MQTT Publisher</name>
+    <name>Publish messages to a public MQTT Broker</name>
     <type>MQTTPublisherMeta</type>
     <description/>
     <distribute>Y</distribute>
@@ -478,6 +478,12 @@
     <TIMEOUT>30</TIMEOUT>
     <QOS>0</QOS>
     <REQUIRES_AUTH>false</REQUIRES_AUTH>
+    <SSL>
+      <CA_FILE/>
+      <CERT_FILE/>
+      <KEY_FILE/>
+      <KEY_FILE_PASS/>
+    </SSL>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -493,7 +499,7 @@
     </step>
 
   <step>
-    <name>Modified Java Script Value</name>
+    <name>Make messages</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
@@ -522,14 +528,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
+      <xloc>304</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Text file input</name>
+    <name>Read a CSV file from S3</name>
     <type>TextFileInput</type>
     <description/>
     <distribute>Y</distribute>
